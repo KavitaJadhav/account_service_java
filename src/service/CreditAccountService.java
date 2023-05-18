@@ -15,4 +15,9 @@ public class CreditAccountService implements AccountService {
     public void createAccount(Account account) {
         repository.create(account);
     }
+
+    @Override
+    public CreditAccount getAccount(long id) {
+        return (CreditAccount) repository.get(id);
+    }
 }

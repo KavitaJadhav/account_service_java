@@ -31,5 +31,12 @@ public class Main {
             else
                 creditAccountService.createAccount(account);
         }
+
+        CreditAccount creditAccount = creditAccountService.getAccount(12341l);
+        System.out.println("balance in creditAccount " + creditAccount.getId() + " : " + creditAccount.getBalance());
+
+        SavingAccount savingAccount = savingAccountService.getAccount(12345l);
+        System.out.println("balance in savingAccount " + savingAccount.getId() + " : " + savingAccount.getBalance());
+
     }
 }

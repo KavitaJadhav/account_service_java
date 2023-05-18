@@ -15,4 +15,8 @@ public class AccountRepository {
     public Account get(long id) {
         return this.accounts.get(id).clone();
     }
+
+    public void update(Account account) {
+        this.accounts.put(account.getId(), account.clone());
+    }
 }

@@ -10,8 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-
-
     public static void main(String[] args) {
         AccountRepository repository = new AccountRepository();
         CreditAccountService creditAccountService = new CreditAccountService(repository);
@@ -32,11 +30,16 @@ public class Main {
                 creditAccountService.createAccount(account);
         }
 
-        CreditAccount creditAccount = creditAccountService.getAccount(12341l);
-        System.out.println("balance in creditAccount " + creditAccount.getId() + " : " + creditAccount.getBalance());
-
         SavingAccount savingAccount = savingAccountService.getAccount(12345l);
+        savingAccountService.deposit(savingAccount.getId(), new BigDecimal("1000"));
+        savingAccountService.withdraw(savingAccount.getId(), new BigDecimal("100"));
+        savingAccount = savingAccountService.getAccount(12345l);
         System.out.println("balance in savingAccount " + savingAccount.getId() + " : " + savingAccount.getBalance());
 
+        CreditAccount creditAccount = creditAccountService.getAccount(12341l);
+        creditAccountService.withdraw(creditAccount.getId(), new BigDecimal("1000"));
+        creditAccountService.deposit(creditAccount.getId(), new BigDecimal("500"));
+        creditAccount = creditAccountService.getAccount(12341l);
+        System.out.println("balance in creditAccount " + creditAccount.getId() + " : " + creditAccount.getBalance());
     }
 }

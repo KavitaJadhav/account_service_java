@@ -41,5 +41,13 @@ public class Main {
         creditAccountService.deposit(creditAccount.getId(), new BigDecimal("500"));
         creditAccount = creditAccountService.getAccount(12341l);
         System.out.println("balance in creditAccount " + creditAccount.getId() + " : " + creditAccount.getBalance());
+
+        System.out.println("Check account Id valid : 12343l " + savingAccountService.isValidAccountId(12343l));
+        savingAccountService.delete(12343l);
+        System.out.println("Check account Id valid : 12343l " + savingAccountService.isValidAccountId(12343l));
+
+        System.out.println("Check account Id valid : 12342l " + creditAccountService.isValidAccountId(12342l));
+        creditAccountService.delete(12342l);
+        System.out.println("Check account Id valid : 12342l " + creditAccountService.isValidAccountId(12342l));
     }
 }

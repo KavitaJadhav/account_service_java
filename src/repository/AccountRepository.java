@@ -19,4 +19,12 @@ public class AccountRepository {
     public void update(Account account) {
         this.accounts.put(account.getId(), account.clone());
     }
+
+    public void delete(long id) {
+        accounts.remove(id);
+    }
+
+    public boolean isAvailable(long id) {
+        return !(accounts.get(id) == null);
+    }
 }

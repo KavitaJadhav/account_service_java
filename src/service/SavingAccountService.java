@@ -36,4 +36,14 @@ public class SavingAccountService implements AccountService {
         account.setBalance(account.getBalance().subtract(amount));
         repository.update(account);
     }
+
+    @Override
+    public void delete(long id) {
+        repository.delete(id);
+    }
+
+    @Override
+    public boolean isValidAccountId(long id) {
+        return repository.isAvailable(id);
+    }
 }

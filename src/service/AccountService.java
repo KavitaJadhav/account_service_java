@@ -12,4 +12,8 @@ public interface AccountService {
     void deposit(long id, BigDecimal amount);
 
     void withdraw(long id, BigDecimal amount);
+
+    void delete(long id);
+
+    boolean isValidAccountId(long id);
 }

@@ -1,0 +1,6 @@
+type account_id opening_balance
+Credit 12341 0.0
+Credit 12342 0.0
+Saving 12343 0.0
+Saving 12344 0.0
+Saving 12345 0.0
